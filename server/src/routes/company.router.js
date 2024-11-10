@@ -1,7 +1,7 @@
 const express = require("express");
 const Company = require("../models/company.model"); // post lessonPacket
 const router = express.Router();
-const chalk = require("chalk");
+// const chalk = require("chalk");
 const utils = require("../utils/utils");
 const User = require("../models/user.model"); // post lessonPacket
 var multer = require("multer");

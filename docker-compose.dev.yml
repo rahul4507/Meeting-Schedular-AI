@@ -10,6 +10,7 @@ services:
     command: /usr/src/app/node_modules/.bin/nodemon server.js
     volumes:
       - ./server/:/usr/src/app
+      # Bind mount only for app source code, not node_modules from host to avoid overwriting the container's node_modules
       - /usr/src/app/node_modules
     ports:
       - "8080:8080"
@@ -18,6 +19,7 @@ services:
       - NODE_ENV=development
     networks:
       - app-network
+
   client:
     build:
       context: ./client
@@ -27,6 +29,7 @@ services:
     command: yarn start
     volumes:
       - ./client/:/usr/app
+      # Same as server: avoid binding node_modules from host
       - /usr/app/node_modules
     depends_on:
       - server
@@ -36,11 +39,5 @@ services:
       - app-network
 
 networks:
-    app-network:
-        driver: bridge
-
-volumes:
-    data-volume:
-    node_modules:
-    web-root:
-      driver: local
+  app-network:
+    driver: bridge

@@ -10,7 +10,7 @@ WORKDIR /usr/app
 COPY package*.json ./
 
 # Install dependencies
-RUN yarn install --network-timeout 100000
+RUN yarn install 
 
 # copy local files to app folder
 COPY . .
