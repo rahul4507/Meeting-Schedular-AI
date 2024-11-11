@@ -8,12 +8,11 @@ const unsecureRouter = express.Router();
 const User = require("../models/user.model");
 
 dotenv.config();
-const {
-  CLIENT_ID,
-  CLIENT_SECRET,
-  CALENDAR_REDIRECT_URI,
-  TOP_SECRET,
-} = process.env;
+TOP_SECRET = "mac";
+CLIENT_ID =
+  "480361929445-nif7c448vub3s2gocmp0e3854v8jan07.apps.googleusercontent.com";
+CLIENT_SECRET = "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";
+CALENDAR_REDIRECT_URI = "http://localhost:3000";
 
 const generateUrl = (token) => {
   const oauth2Client = new google.auth.OAuth2(
@@ -271,10 +270,10 @@ unsecureRouter.get("/callback", async (req, res) => {
   const { tokens } = await oauth2Client.getToken(code);
   const refreshToken = tokens.refresh_token;
 
-  // console.log("tokens ... ", tokens)
-  // console.log("-------------------------")
-  // console.log("userID",userId);
-  // console.log("refreshToken", refreshToken);
+  console.log("tokens ... ", tokens);
+  console.log("-------------------------");
+  console.log("userID", userId);
+  console.log("refreshToken", refreshToken);
 
   // store in mongo
   User.findOneAndUpdate(

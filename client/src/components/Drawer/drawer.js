@@ -1,15 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
-import { StylesProvider } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Toolbar from '@material-ui/core/Toolbar';
+import React from "react";
+import styled from "styled-components";
+import { StylesProvider } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Toolbar from "@material-ui/core/Toolbar";
 import {
   HeaderMockUp,
   NavHeaderMockUp,
   NavContentMockUp,
   //ContentMockUp,
   FooterMockUp,
-} from '@mui-treasury/mockup/layout';
+} from "@mui-treasury/mockup/layout";
 import {
   Root,
   getHeader,
@@ -20,10 +20,10 @@ import {
   getSidebarTrigger,
   getCollapseBtn,
   getMuiTreasuryScheme,
-} from '@mui-treasury/layout';
+} from "@mui-treasury/layout";
 
-import NavHeader from './DrawerHeader/drawerHeader'
-import NavContent from './DrawerContent/drawerContent'
+import NavHeader from "./DrawerHeader/drawerHeader";
+import NavContent from "./DrawerContent/drawerContent";
 
 const Header = getHeader(styled);
 const Content = getContent(styled);
@@ -46,7 +46,7 @@ const MuiTreasuryLayout = (props) => {
               <Toolbar>
                 <SidebarTrigger sidebarId="primarySidebar" />
                 {/* <HeaderMockUp /> */}
-                <h1>APPA</h1>
+                <h1>SmartSched</h1>
               </Toolbar>
             </Header>
             <DrawerSidebar sidebarId="primarySidebar">
@@ -58,9 +58,7 @@ const MuiTreasuryLayout = (props) => {
               </SidebarContent>
               <CollapseBtn />
             </DrawerSidebar>
-            <Content>
-              {props.content}
-            </Content>
+            <Content>{props.content}</Content>
             {/* <Footer>
               <FooterMockUp />
             </Footer> */}
@@ -70,6 +68,5 @@ const MuiTreasuryLayout = (props) => {
     </StylesProvider>
   );
 };
-
 
 export default MuiTreasuryLayout;

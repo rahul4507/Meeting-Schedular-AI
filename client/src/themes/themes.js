@@ -1,7 +1,7 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from "@material-ui/core/styles";
 
-const theme = createMuiTheme({
-    spacing: 4,
-  });
+const theme = createTheme({
+  spacing: 4,
+});
 
 export default theme;

@@ -10,8 +10,9 @@ const utils = require("../utils/utils");
 //      ilk once google'in izin sayfasina gonder
 //      ordan bir code donecek onu al ve get access token'e istek at
 // refresh access token
-// get calendar list
+// get calendar list 
 // get events of primary calendar
+
 
 router.post("/", async (req, res) => {
   let belongCompany = await utils.getCompanyId(req.user._id, res);
@@ -64,15 +65,13 @@ router.post("/", async (req, res) => {
 });
 
 router.get("/auth", async (req, res) => {
-  try {
-    console.log(
-      "#################################################",
-      req.query.code
-    );
-    res.status(200).send({
-      message: req.query.code,
-    });
 
+    try{
+        console.log("#################################################",req.query.code);
+        res.status(200).send({
+          message: req.query.code,
+        });
+        
     //   if (docs.length === 0) {
     //     res.status(200).send({
     //       data: docs,
@@ -84,11 +83,12 @@ router.get("/auth", async (req, res) => {
     //       message: "Success.",
     //     });
     //   }
-  } catch (err) {
-    res.status(400).send({
-      error: "Cannot create group.",
-    });
-  }
+    }
+    catch (err) {
+      res.status(400).send({
+        error: "Cannot create group.",
+      });
+    }
 });
 
 // router.get("/my_groups", async (req, res, next) => {

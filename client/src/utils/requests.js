@@ -1,14 +1,14 @@
 import axios from "axios";
-const dotenv = require("dotenv");
+// const dotenv = require("dotenv");
 
-dotenv.config();
-const { DEBUG, SERVER_URL } = process.env;
+// dotenv.config();
+// const { DEBUG, SERVER_URL } = process.env;
 
-let serverUrl = "http://127.0.0.1:8080";
+let serverUrl = "http://localhost:8080";
 
-if (DEBUG === 0) {
-  serverUrl = SERVER_URL;
-}
+// if (DEBUG === 0) {
+//   serverUrl = SERVER_URL;
+// }
 
 const our_api = {
   dummyRequest: async () => {
